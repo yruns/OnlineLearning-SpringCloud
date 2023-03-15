@@ -7,3 +7,6 @@ Content-Type: application/json
   "courseName": "java",
   "publishStatus": ""
 }
+
+### 查询系统字典表
+GET http://localhost:63110/system/dictionary/all

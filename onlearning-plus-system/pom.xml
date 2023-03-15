@@ -3,19 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>xuecheng-plus-parent</artifactId>
-        <groupId>com.xuecheng</groupId>
+        <artifactId>onlearning-plus-parent</artifactId>
+        <groupId>com.yruns</groupId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../xuecheng-plus-parent</relativePath>
+        <relativePath>../onlearning-plus-parent</relativePath>
     </parent>
-    <artifactId>xuecheng-plus-system</artifactId>
-    <name>xuecheng-plus-system</name>
-    <description>xuecheng-plus-system</description>
+    <artifactId>onlearning-plus-system</artifactId>
+    <name>onlearning-plus-system</name>
+    <description>onlearning-plus-system</description>
     <packaging>pom</packaging>
 
     <modules>
-        <module>xuecheng-plus-system-api</module>
-        <module>xuecheng-plus-system-service</module>
-        <module>xuecheng-plus-system-model</module>
+        <module>onlearning-plus-system-api</module>
+        <module>onlearning-plus-system-service</module>
+        <module>onlearning-plus-system-model</module>
     </modules>
 </project>
