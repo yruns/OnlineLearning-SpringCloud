@@ -2,6 +2,8 @@ package com.yruns.content.api;
 
 import com.yruns.base.model.PageParams;
 import com.yruns.base.model.PageResult;
+import com.yruns.content.model.dto.AddCourseDto;
+import com.yruns.content.model.dto.CourseBaseInfoDto;
 import com.yruns.content.model.dto.QueryCourseParamsDto;
 import com.yruns.content.model.pojo.CourseBase;
 import com.yruns.content.service.CourseBaseInfoService;
@@ -29,5 +31,11 @@ public class CourseBaseInfoController {
     public PageResult<CourseBase> list(PageParams pageParams,
                                        @RequestBody(required = false) QueryCourseParamsDto queryCourseParamsDto) {
         return courseBaseInfoService.queryCourseBaseList(pageParams, queryCourseParamsDto);
+    }
+
+    @ApiOperation("课程添加接口")
+    @PostMapping("/course")
+    public CourseBaseInfoDto addCourse(@RequestBody AddCourseDto addCourseDto) {
+        return null;
     }
 }

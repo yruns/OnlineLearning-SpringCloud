@@ -9,4 +9,5 @@ import com.yruns.content.model.pojo.CourseBase;
 public interface CourseBaseInfoService extends IService<CourseBase> {
 
     PageResult<CourseBase> queryCourseBaseList(PageParams pageParams, QueryCourseParamsDto queryCourseParamsDto);
+
 }
