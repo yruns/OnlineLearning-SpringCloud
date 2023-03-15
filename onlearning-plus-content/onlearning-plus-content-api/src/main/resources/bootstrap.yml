@@ -1,0 +1,31 @@
+server:
+  servlet:
+    context-path: /content
+  port: 63040
+
+# 微服务配置
+spring:
+  application:
+    name: content-api
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.48.200:3306/xcplus_content?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: mysql
+
+# mybatis配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 日志文件配置路径
+#logging:
+#  config: classpath:log4j2-dev.xml
+
+# 配置swagger扫描路径
+swagger:
+  title: "学成在线内容管理系统"
+  description: "学成在线内容管理系统接口文档"
+  base-package: com.yruns.content
+  enabled: true
+  version: 1.0.0
