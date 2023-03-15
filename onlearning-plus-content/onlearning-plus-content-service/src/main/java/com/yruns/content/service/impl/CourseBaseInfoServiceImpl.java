@@ -21,23 +21,8 @@ import org.springframework.stereotype.Service;
 public class CourseBaseInfoServiceImpl extends ServiceImpl<CourseBaseMapper, CourseBase> implements CourseBaseInfoService {
 
 
-
-
     @Override
     public PageResult<CourseBase> queryCourseBaseList(PageParams pageParams, QueryCourseParamsDto queryCourseParamsDto) {
-
-//        //拼装查询条件
-//        LambdaQueryWrapper<CourseBase> queryWrapper = new LambdaQueryWrapper<>();
-//        //根据名称模糊查询,在sql中拼接 course_base.name like '%值%'
-//        queryWrapper.like(StringUtils.isNotBlank(queryCourseParamsDto.getCourseName()),CourseBase::getName,queryCourseParamsDto.getCourseName());
-//        //根据课程审核状态查询 course_base.audit_status = ?
-//        queryWrapper.eq(StringUtils.isNotBlank(queryCourseParamsDto.getAuditStatus()), CourseBase::getAuditStatus,queryCourseParamsDto.getAuditStatus());
-//        queryWrapper.eq(StringUtils.isNotBlank(queryCourseParamsDto.getPublishStatus()), CourseBase::getStatus,queryCourseParamsDto.getAuditStatus());
-//
-//        // 创建分页查询
-//        Page<CourseBase> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
-//        Page<CourseBase> pageResult = this.baseMapper.selectPage(page, queryWrapper);
-//
 
         Page<CourseBase> pageResult = this.query()
                 .like("name", queryCourseParamsDto.getCourseName())
