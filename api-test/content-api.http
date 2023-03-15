@@ -9,4 +9,7 @@ Content-Type: application/json
 }
 
 ### 查询系统字典表
-GET http://localhost:63110/system/dictionary/all
+GET {{content_host}}/system/dictionary/all
+
+### 查询课程分类
+GET {{content_host}}/content/course-category/tree-nodes
