@@ -6,9 +6,9 @@ spring:
     name: content-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.48.200:3306/xcplus_content?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/onlearning_content?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
     username: root
-    password: mysql
+    password: root
 
 # mybatis配置
 mybatis-plus:

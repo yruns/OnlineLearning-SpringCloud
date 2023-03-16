@@ -13,4 +13,5 @@ import java.util.List;
 public class CourseCategoryDto extends CourseCategory implements Serializable {
 
     List<CourseCategory> childrenTreeNodes;
+
 }

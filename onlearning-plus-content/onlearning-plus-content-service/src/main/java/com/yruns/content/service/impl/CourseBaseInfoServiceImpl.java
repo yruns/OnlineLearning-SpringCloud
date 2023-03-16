@@ -12,6 +12,7 @@ import com.yruns.content.mapper.CourseMarketMapper;
 import com.yruns.content.model.dto.AddCourseDto;
 import com.yruns.content.model.dto.CourseBaseInfoDto;
 import com.yruns.content.model.dto.QueryCourseParamsDto;
+import com.yruns.content.model.dto.UpdateCourseDto;
 import com.yruns.content.model.pojo.CourseBase;
 import com.yruns.content.model.pojo.CourseMarket;
 import com.yruns.content.service.CourseBaseInfoService;
@@ -22,6 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 /**
  * CourseBaseInfoServiceImpl
@@ -61,6 +63,7 @@ public class CourseBaseInfoServiceImpl extends ServiceImpl<CourseBaseMapper, Cou
         BeanUtils.copyProperties(addCourseDto, courseBase);
         courseBase.setCompanyId(companyId);     // 机构id
         courseBase.setCreateDate(LocalDateTime.now()); // 创建时间
+        // todo: 添加创建人
         courseBase.setAuditStatus("202002"); // 默认未审核
         courseBase.setStatus("203001"); // 默认未提交
 
@@ -79,6 +82,39 @@ public class CourseBaseInfoServiceImpl extends ServiceImpl<CourseBaseMapper, Cou
 
         // 返回全部信息
         return getCourseBaseInfoById(courseBase.getId());
+    }
+
+    @Override
+    public CourseBaseInfoDto queryCourseById(Long id) {
+        return getCourseBaseInfoById(id);
+    }
+
+    @Override
+    public CourseBaseInfoDto updateCourseBase(Long companyId, UpdateCourseDto updateCourseDto) {
+
+        // 查询该信息是否存在
+        CourseBase courseBase = this.getById(updateCourseDto.getId());
+        if (courseBase == null) {
+            CustomException.cast("该记录为空");
+        }
+
+        if (!Objects.equals(courseBase.getCompanyId(), companyId)) {
+            CustomException.cast("只能修改所在机构的课程");
+        }
+
+        BeanUtils.copyProperties(updateCourseDto, courseBase);
+        courseBase.setCompanyId(companyId);
+        courseBase.setChangeDate(LocalDateTime.now());
+        // todo: add setChangPeople
+        // 修改基本信息表
+        this.updateById(courseBase);
+
+        CourseMarket courseMarket = new CourseMarket();
+        BeanUtils.copyProperties(updateCourseDto, courseMarket);
+        // 修改课程营销信息
+        courseMarketMapper.updateById(courseMarket);
+
+        return getCourseBaseInfoById(updateCourseDto.getId());
     }
 
     // 保存营销信息
@@ -111,11 +147,14 @@ public class CourseBaseInfoServiceImpl extends ServiceImpl<CourseBaseMapper, Cou
         // 从基本信息表中查询
         CourseBase courseBaseInfo = this.getById(courseId);
         if (courseBaseInfo == null) {
-            return null;
+            CustomException.cast("课程信息获取异常");
         }
 
         // 从营销信息表中查询
         CourseMarket courseMarket = courseMarketMapper.selectById(courseId);
+        if (courseMarket == null) {
+            CustomException.cast("课程营销信息获取异常");
+        }
 
         // 组装数据
         CourseBaseInfoDto courseBaseInfoDto = new CourseBaseInfoDto();
