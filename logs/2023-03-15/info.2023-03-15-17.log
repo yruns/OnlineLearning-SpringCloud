@@ -46,40 +46,40 @@
 2023-03-15 17:31:36,459 INFO [main][ServletWebServerApplicationContext.java:285] - Root WebApplicationContext: initialization completed in 1774 ms
 2023-03-15 17:31:36,679 DEBUG [main][HikariConfig.java:946] - Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader sun.misc.Launcher$AppClassLoader@b4aac2
 2023-03-15 17:31:36,679 DEBUG [main][HikariConfig.java:946] - Driver class com.mysql.cj.jdbc.Driver found in Thread context class loader sun.misc.Launcher$AppClassLoader@b4aac2
-2023-03-15 17:31:39,760 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.insert
-2023-03-15 17:31:39,760 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.insert
-2023-03-15 17:31:39,767 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.delete
-2023-03-15 17:31:39,767 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.delete
-2023-03-15 17:31:39,770 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.deleteByMap
-2023-03-15 17:31:39,770 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.deleteByMap
-2023-03-15 17:31:39,786 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.deleteById
-2023-03-15 17:31:39,786 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.deleteById
-2023-03-15 17:31:39,788 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.deleteBatchIds
-2023-03-15 17:31:39,788 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.deleteBatchIds
-2023-03-15 17:31:39,792 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.update
-2023-03-15 17:31:39,792 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.update
-2023-03-15 17:31:39,793 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.updateById
-2023-03-15 17:31:39,793 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.updateById
-2023-03-15 17:31:39,794 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectById
-2023-03-15 17:31:39,794 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectById
-2023-03-15 17:31:39,797 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectBatchIds
-2023-03-15 17:31:39,797 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectBatchIds
-2023-03-15 17:31:39,798 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectByMap
-2023-03-15 17:31:39,798 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectByMap
-2023-03-15 17:31:39,800 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectOne
-2023-03-15 17:31:39,800 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectOne
-2023-03-15 17:31:39,805 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectCount
-2023-03-15 17:31:39,805 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectCount
-2023-03-15 17:31:39,810 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectMaps
-2023-03-15 17:31:39,810 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectMaps
-2023-03-15 17:31:39,813 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectMapsPage
-2023-03-15 17:31:39,813 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectMapsPage
-2023-03-15 17:31:39,816 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectObjs
-2023-03-15 17:31:39,816 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectObjs
-2023-03-15 17:31:39,819 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectList
-2023-03-15 17:31:39,819 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectList
-2023-03-15 17:31:39,821 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectPage
-2023-03-15 17:31:39,821 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.xuecheng.system.mapper.DictionaryMapper.selectPage
+2023-03-15 17:31:39,760 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.insert
+2023-03-15 17:31:39,760 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.insert
+2023-03-15 17:31:39,767 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.delete
+2023-03-15 17:31:39,767 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.delete
+2023-03-15 17:31:39,770 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.deleteByMap
+2023-03-15 17:31:39,770 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.deleteByMap
+2023-03-15 17:31:39,786 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.deleteById
+2023-03-15 17:31:39,786 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.deleteById
+2023-03-15 17:31:39,788 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.deleteBatchIds
+2023-03-15 17:31:39,788 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.deleteBatchIds
+2023-03-15 17:31:39,792 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.update
+2023-03-15 17:31:39,792 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.update
+2023-03-15 17:31:39,793 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.updateById
+2023-03-15 17:31:39,793 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.updateById
+2023-03-15 17:31:39,794 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectById
+2023-03-15 17:31:39,794 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectById
+2023-03-15 17:31:39,797 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectBatchIds
+2023-03-15 17:31:39,797 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectBatchIds
+2023-03-15 17:31:39,798 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectByMap
+2023-03-15 17:31:39,798 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectByMap
+2023-03-15 17:31:39,800 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectOne
+2023-03-15 17:31:39,800 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectOne
+2023-03-15 17:31:39,805 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectCount
+2023-03-15 17:31:39,805 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectCount
+2023-03-15 17:31:39,810 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectMaps
+2023-03-15 17:31:39,810 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectMaps
+2023-03-15 17:31:39,813 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectMapsPage
+2023-03-15 17:31:39,813 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectMapsPage
+2023-03-15 17:31:39,816 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectObjs
+2023-03-15 17:31:39,816 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectObjs
+2023-03-15 17:31:39,819 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectList
+2023-03-15 17:31:39,819 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectList
+2023-03-15 17:31:39,821 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectPage
+2023-03-15 17:31:39,821 DEBUG [main][MybatisConfiguration.java:128] - addMappedStatement: com.yruns.system.mapper.DictionaryMapper.selectPage
 2023-03-15 17:31:40,246 INFO [main][PropertySourcedRequestMappingHandlerMapping.java:69] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
 2023-03-15 17:31:40,246 INFO [main][PropertySourcedRequestMappingHandlerMapping.java:69] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
 2023-03-15 17:31:40,280 DEBUG [main][ResourceBundleMessageInterpolator.java:172] - Loaded expression factory via original TCCL

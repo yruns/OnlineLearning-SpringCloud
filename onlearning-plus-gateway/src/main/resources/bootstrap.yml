@@ -1,7 +1,7 @@
-#微服务配置
+# 微服务配置
 spring:
   application:
-    name: system-api
+    name: gateway # 服务名
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
@@ -14,14 +14,8 @@ spring:
         file-extension: yaml
         refresh-enabled: true
         extension-configs:  # 引用其他的配置文件
-          - data-id: system-service-dev.yaml
-            group: onlearning-plus-project
-            refresh: true
-          - data-id: swagger-dev.yaml
-            group: onlearning-plus-common
-            refresh: true
           - data-id: logging-dev.yaml
-            group: onlearning-plus-common
+            group: onlearning-plus-project
             refresh: true
 
   profiles:
