@@ -3,18 +3,30 @@
 # 微服务配置
 spring:
   application:
-    name: content-service
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/onlearning_content?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
-    username: root
-    password: root
+    name: content-service # 服务名
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      config: # nacos配置文件的相关信息
+        namespace: dev
+        group: onlearning-plus-project
+        file-extension: yaml
+        refresh-enabled: true
+  #  datasource:
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
+  #    url: jdbc:mysql://127.0.0.1:3306/onlearning_content?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+  #    username: root
+  #    password: root
+
+  profiles:
+    active: dev # 环境名
+
 
 # mybatis配置
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    mapper-locations: classpath:mapper/*.xml
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    mapper-locations: classpath:mapper/*.xml
 
 # 日志文件配置路径
 #logging:

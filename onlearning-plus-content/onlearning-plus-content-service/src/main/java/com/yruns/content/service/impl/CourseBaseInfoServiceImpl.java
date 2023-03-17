@@ -1,5 +1,6 @@
 package com.yruns.content.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -15,7 +16,10 @@ import com.yruns.content.model.dto.QueryCourseParamsDto;
 import com.yruns.content.model.dto.UpdateCourseDto;
 import com.yruns.content.model.pojo.CourseBase;
 import com.yruns.content.model.pojo.CourseMarket;
+import com.yruns.content.model.pojo.CourseTeacher;
 import com.yruns.content.service.CourseBaseInfoService;
+import com.yruns.content.service.CourseTeacherService;
+import com.yruns.content.service.TeachPlanService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -37,6 +42,12 @@ public class CourseBaseInfoServiceImpl extends ServiceImpl<CourseBaseMapper, Cou
 
     @Autowired
     private CourseCategoryMapper courseCategoryMapper;
+
+    @Autowired
+    private TeachPlanService teachPlanService;
+
+    @Autowired
+    private CourseTeacherService courseTeacherService;
 
 
     @Override
@@ -115,6 +126,26 @@ public class CourseBaseInfoServiceImpl extends ServiceImpl<CourseBaseMapper, Cou
         courseMarketMapper.updateById(courseMarket);
 
         return getCourseBaseInfoById(updateCourseDto.getId());
+    }
+
+    @Override
+    public void deleteCourseBase(Long id) {
+        // 删除CourseBase表中记录
+        this.removeById(id);
+        // 删除CourseMarket表中记录
+        courseMarketMapper.deleteById(id);
+        // 删除教师表中记录
+        LambdaQueryWrapper<CourseTeacher> lqw1 = new LambdaQueryWrapper<CourseTeacher>()
+                .eq(CourseTeacher::getCourseId, id);
+        courseTeacherService.remove(lqw1);
+        // 删除教学计划表
+        teachPlanService.query()
+                .eq("course_id", id)
+                .list()
+                .forEach(item -> {
+                    teachPlanService.deleteTeachplanById(item.getId());
+                });
+
     }
 
     // 保存营销信息
