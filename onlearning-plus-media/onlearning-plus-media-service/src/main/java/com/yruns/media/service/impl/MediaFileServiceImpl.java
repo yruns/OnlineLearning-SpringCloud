@@ -8,7 +8,6 @@ import com.yruns.media.mapper.MediaFilesMapper;
 import com.yruns.media.model.dto.QueryMediaParamsDto;
 import com.yruns.media.model.po.MediaFiles;
 import com.yruns.media.service.MediaFileService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +32,7 @@ public class MediaFileServiceImpl implements MediaFileService {
   LambdaQueryWrapper<MediaFiles> queryWrapper = new LambdaQueryWrapper<>();
   
   //分页对象
-  Page<MediaFiles> page = new Page<>(pageParams.getPageNo(), pageParams.getPageSize());
+  Page<MediaFiles> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
   // 查询数据内容获得结果
   Page<MediaFiles> pageResult = mediaFilesMapper.selectPage(page, queryWrapper);
   // 获取数据列表
@@ -41,7 +40,7 @@ public class MediaFileServiceImpl implements MediaFileService {
   // 获取数据总数
   long total = pageResult.getTotal();
   // 构建结果集
-  PageResult<MediaFiles> mediaListResult = new PageResult<>(list, total, pageParams.getPageNo(), pageParams.getPageSize());
+  PageResult<MediaFiles> mediaListResult = new PageResult<>(list, total, pageParams.getPage(), pageParams.getPageSize());
   return mediaListResult;
 
  }

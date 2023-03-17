@@ -4,25 +4,25 @@ spring:
     name: media-api
   cloud:
     nacos:
-      server-addr: 192.168.101.65:8848
+      server-addr: 127.0.0.1:8848
       discovery:
         namespace: ${spring.profiles.active}
-        group: xuecheng-plus-project
+        group: onlearning-plus-project
       config:
         namespace: ${spring.profiles.active}
-        group: xuecheng-plus-project
+        group: onlearning-plus-project
         file-extension: yaml
         refresh-enabled: true
         extension-configs:
           - data-id: media-service-${spring.profiles.active}.yaml
-            group: xuecheng-plus-project
+            group: onlearning-plus-project
             refresh: true
         shared-configs:
           - data-id: swagger-${spring.profiles.active}.yaml
-            group: xuecheng-plus-common
+            group: onlearning-plus-common
             refresh: true
           - data-id: logging-${spring.profiles.active}.yaml
-            group: xuecheng-plus-common
+            group: onlearning-plus-common
             refresh: true
   profiles:
     active: dev
