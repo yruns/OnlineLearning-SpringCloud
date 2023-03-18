@@ -16,7 +16,7 @@ public class PageParams {
 
     // 当前页码
     @ApiModelProperty("页码")
-    private Long page = 1L;
+    private Long pageNo = 1L;
 
     // 每页记录数默认值
     @ApiModelProperty("页面大小")
@@ -24,8 +24,8 @@ public class PageParams {
 
     public PageParams() {}
 
-    public PageParams(Long page, Long pageSize) {
-        this.page = page;
+    public PageParams(Long pageNo, Long pageSize) {
+        this.pageNo = pageNo;
         this.pageSize = pageSize;
     }
 }

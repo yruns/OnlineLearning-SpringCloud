@@ -3,10 +3,12 @@ package com.yruns.media.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yruns.base.model.PageParams;
 import com.yruns.base.model.PageResult;
+import com.yruns.base.model.Result;
 import com.yruns.media.model.dto.QueryMediaParamsDto;
 import com.yruns.media.model.dto.UploadFileParamDto;
 import com.yruns.media.model.dto.UploadFileResultDto;
 import com.yruns.media.model.po.MediaFiles;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author Mr.M
@@ -31,4 +33,13 @@ public interface MediaFileService extends IService<MediaFiles> {
 
     MediaFiles addMediaFilesToDB(Long companyId, String fileMd5, UploadFileParamDto uploadFileParamDto,
                                         String bucket, String objectName);
+
+    Result<Boolean> checkFile(String fileMd5);
+
+    Result<Boolean> checkChunk(String fileMd5, int chunk);
+
+    Result<Boolean> uploadChunk(String filePath, String fileMd5, int chunk);
+
+    Result<Boolean> mergeChunk(Long companyId, String fileMd5, String fileName, int chunkTotal,
+                               UploadFileParamDto uploadFileParamDto);
 }

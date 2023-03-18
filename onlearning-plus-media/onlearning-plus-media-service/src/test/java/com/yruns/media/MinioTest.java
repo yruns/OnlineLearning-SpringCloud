@@ -3,6 +3,7 @@ package com.yruns.media;
 import com.j256.simplemagic.ContentInfo;
 import io.minio.*;
 import com.j256.simplemagic.ContentInfoUtil;
+import io.minio.errors.*;
 import lombok.SneakyThrows;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
@@ -14,9 +15,14 @@ import org.springframework.http.MediaType;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FilterInputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -25,7 +31,6 @@ import java.util.Objects;
  * @Author yruns
  * @Version 2023/3/18
  */
-@SpringBootTest(classes = {com.yruns.media.MinioTest.class})
 public class MinioTest {
 
     MinioClient minioClient =
@@ -95,5 +100,40 @@ public class MinioTest {
         if (Objects.equals(origin, local)) {
             System.out.println("下载成功");
         }
+    }
+
+    @Test
+    public void testUpLoadChunk() throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
+
+        //上传文件的参数信息
+        UploadObjectArgs uploadObjectArgs = null;
+        for (int i = 0; i < 8; i++) {
+            uploadObjectArgs = UploadObjectArgs.builder()
+                    .bucket("onlearningbucket")//桶
+                    .filename("H:\\testChunk\\" + i) //指定本地文件路径
+    //                .object("1.mp4")//对象名 在桶下存储该文件
+                    .object("chunk/" + i)//对象名 放在子目录下
+                    .build();
+            //上传文件
+            minioClient.uploadObject(uploadObjectArgs);
+            System.out.println("上传成功" + i);
+        }
+    }
+
+    @SneakyThrows
+    @Test
+    public void testMergeChunk() {
+        List<ComposeSource> composeSources = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            composeSources.add(
+                    ComposeSource.builder().bucket("onlearningbucket").object("chunk/" + i).build()
+            );
+        }
+        ComposeObjectArgs ca = ComposeObjectArgs.builder().bucket("onlearningbucket")
+                .sources(composeSources)
+                .object("merge.mp4")
+                .build();
+
+        minioClient.composeObject(ca);
     }
 }

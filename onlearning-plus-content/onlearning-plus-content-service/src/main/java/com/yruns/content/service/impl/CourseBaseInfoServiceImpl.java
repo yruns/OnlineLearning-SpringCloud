@@ -57,11 +57,11 @@ public class CourseBaseInfoServiceImpl extends ServiceImpl<CourseBaseMapper, Cou
                 .like("name", queryCourseParamsDto.getCourseName())
                 .eq(StringUtils.isNotBlank(queryCourseParamsDto.getPublishStatus()), "status", queryCourseParamsDto.getPublishStatus())
                 .eq(StringUtils.isNotBlank(queryCourseParamsDto.getAuditStatus()), "audit_status", queryCourseParamsDto.getAuditStatus())
-                .page(new Page<>(pageParams.getPage(), pageParams.getPageSize()));
+                .page(new Page<>(pageParams.getPageNo(), pageParams.getPageSize()));
 
         // 封装为定义的PageResult
         PageResult<CourseBase> result = new PageResult<>(pageResult.getRecords(), pageResult.getTotal(),
-                pageParams.getPage(), pageParams.getPageSize());
+                pageParams.getPageNo(), pageParams.getPageSize());
 
         return result;
     }
