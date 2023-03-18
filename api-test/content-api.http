@@ -87,4 +87,14 @@ Content-Type: application/json
 ### 通过Id查询课程计划
 GET {{content_host}}/content/teachplan/117/tree-nodes
 
+### 媒体文件查询
+POST {{gateway_host}}/media/files?page=1&pageSize=10
+Content-Type: application/json
+
+{
+  "auditStatus": "",
+  "filename": "",
+  "fileType": ""
+}
+
 
