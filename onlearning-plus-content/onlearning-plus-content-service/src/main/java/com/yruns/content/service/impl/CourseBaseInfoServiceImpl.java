@@ -129,6 +129,7 @@ public class CourseBaseInfoServiceImpl extends ServiceImpl<CourseBaseMapper, Cou
     }
 
     @Override
+    @Transactional
     public void deleteCourseBase(Long id) {
         // 删除CourseBase表中记录
         this.removeById(id);

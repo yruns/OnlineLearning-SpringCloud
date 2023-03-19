@@ -2,6 +2,7 @@ package com.yruns.content.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yruns.content.model.dto.AddTeachplanDto;
+import com.yruns.content.model.dto.BindTeachplanMediaDto;
 import com.yruns.content.model.dto.TeachplanDto;
 import com.yruns.content.model.pojo.Teachplan;
 
@@ -18,4 +19,6 @@ public interface TeachPlanService extends IService<Teachplan> {
     void moveDown(Long id);
 
     void moveUp(Long id);
+
+    void bindTeachplanMedia(BindTeachplanMediaDto bindTeachplanMediaDto);
 }

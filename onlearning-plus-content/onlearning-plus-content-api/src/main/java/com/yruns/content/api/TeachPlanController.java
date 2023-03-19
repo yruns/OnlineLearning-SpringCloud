@@ -1,6 +1,7 @@
 package com.yruns.content.api;
 
 import com.yruns.content.model.dto.AddTeachplanDto;
+import com.yruns.content.model.dto.BindTeachplanMediaDto;
 import com.yruns.content.model.dto.TeachplanDto;
 import com.yruns.content.service.TeachPlanService;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +28,7 @@ public class TeachPlanController {
     }
 
     @PostMapping("/teachplan")
-    @ApiOperation("查询课程计划树形结构")
+    @ApiOperation("修改课程计划")
     public void saveTeachplan(@RequestBody AddTeachplanDto addTeachplanDto) {
 
         teachPlanService.saveTeachplan(addTeachplanDto);
@@ -54,5 +55,12 @@ public class TeachPlanController {
         teachPlanService.moveUp(id);
     }
 
+
+    @PostMapping("/teachplan/association/media")
+    @ApiOperation("为教学计划绑定媒资")
+    public void bindTeachplanMedia(@RequestBody BindTeachplanMediaDto bindTeachplanMediaDto) {
+
+        teachPlanService.bindTeachplanMedia(bindTeachplanMediaDto);
+    }
 
 }

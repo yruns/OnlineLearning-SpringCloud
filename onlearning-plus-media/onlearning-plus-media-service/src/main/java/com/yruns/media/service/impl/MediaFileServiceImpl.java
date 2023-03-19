@@ -18,6 +18,7 @@ import com.yruns.media.service.MediaFileService;
 import io.minio.*;
 import io.minio.errors.*;
 import lombok.extern.slf4j.Slf4j;
+import net.bytebuddy.asm.Advice;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.BeanUtils;
@@ -70,13 +71,15 @@ public class MediaFileServiceImpl extends ServiceImpl<MediaFilesMapper, MediaFil
     @Override
     public PageResult<MediaFiles> queryMediaFiles(Long companyId, PageParams pageParams, QueryMediaParamsDto queryMediaParamsDto) {
 
-        //构建查询条件对象
-        LambdaQueryWrapper<MediaFiles> queryWrapper = new LambdaQueryWrapper<>();
-
         //分页对象
         Page<MediaFiles> page = new Page<>(pageParams.getPageNo(), pageParams.getPageSize());
         // 查询数据内容获得结果
-        Page<MediaFiles> pageResult = mediaFilesMapper.selectPage(page, queryWrapper);
+        Page<MediaFiles> pageResult = this.query()
+                .like("filename", queryMediaParamsDto.getFilename())
+                .eq("file_type", queryMediaParamsDto.getType())
+                .eq("audit_status", queryMediaParamsDto.getAuditStatus())
+                .page(page);
+
         // 获取数据列表
         List<MediaFiles> list = pageResult.getRecords();
         // 获取数据总数
@@ -185,12 +188,19 @@ public class MediaFileServiceImpl extends ServiceImpl<MediaFilesMapper, MediaFil
         mediaFiles.setFilePath(objectName);
         mediaFiles.setFileId(fileMd5);
         mediaFiles.setUrl("/" + bucket + "/" + objectName);
-        mediaFiles.setCreateDate(LocalDateTime.now());
         mediaFiles.setStatus("1");
         mediaFiles.setAuditStatus("002003");
 
-        // 插入数据库
-        this.save(mediaFiles);
+        MediaFiles byId = this.getById(fileMd5);
+
+        mediaFiles.setCreateDate(LocalDateTime.now());
+        if (byId == null) {
+            // 不存在同名文件，信息入库
+            this.save(mediaFiles);
+        } else {
+            // 存在则更新信息
+            this.updateById(mediaFiles);
+        }
 
         return mediaFiles;
     }
@@ -344,6 +354,7 @@ public class MediaFileServiceImpl extends ServiceImpl<MediaFilesMapper, MediaFil
         }catch (Exception e) {
             return Result.fail(false,"文件校验失败");
         }
+
 
         // 信息入库
         currentProxy.addMediaFilesToDB(companyId, fileMd5, uploadFileParamDto, videoFilesBucket, mergeObject);

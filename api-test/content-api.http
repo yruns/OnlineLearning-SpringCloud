@@ -97,4 +97,14 @@ Content-Type: application/json
   "fileType": ""
 }
 
+### 为课程绑定媒资
+POST {{content_host}}/teachplan/association/media
+Content-Type: application/json
+
+{
+  "mediaId": "0026f7d50b17ab5a419d738d3f8c5f23",
+  "fileName": "QQ图片20210411134643.jpg",
+  "teachplanId": 256
+}
+
 
