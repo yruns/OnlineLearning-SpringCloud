@@ -1,5 +1,6 @@
 package com.yruns.media.service;
 
+import com.alibaba.nacos.common.model.RestResult;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yruns.base.model.PageParams;
 import com.yruns.base.model.PageResult;
@@ -42,4 +43,6 @@ public interface MediaFileService extends IService<MediaFiles> {
 
     Result<Boolean> mergeChunk(Long companyId, String fileMd5, String fileName, int chunkTotal,
                                UploadFileParamDto uploadFileParamDto);
+
+    MediaFiles getPlayUrlByMediaId(String mediaId);
 }

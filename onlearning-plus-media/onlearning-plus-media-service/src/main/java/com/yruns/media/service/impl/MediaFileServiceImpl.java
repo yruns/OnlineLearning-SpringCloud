@@ -1,5 +1,6 @@
 package com.yruns.media.service.impl;
 
+import com.alibaba.nacos.common.model.RestResult;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -367,6 +368,11 @@ public class MediaFileServiceImpl extends ServiceImpl<MediaFilesMapper, MediaFil
         }
 
         return Result.ok(true);
+    }
+
+    @Override
+    public MediaFiles getPlayUrlByMediaId(String mediaId) {
+        return mediaFilesMapper.selectById(mediaId);
     }
 
 }

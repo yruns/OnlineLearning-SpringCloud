@@ -62,4 +62,5 @@ public class CourseBaseInfoController {
 
         courseBaseInfoService.deleteCourseBase(id);
     }
+
 }

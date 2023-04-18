@@ -10,10 +10,7 @@ import com.yruns.base.model.PageResult;
 import com.yruns.content.mapper.CourseBaseMapper;
 import com.yruns.content.mapper.CourseCategoryMapper;
 import com.yruns.content.mapper.CourseMarketMapper;
-import com.yruns.content.model.dto.AddCourseDto;
-import com.yruns.content.model.dto.CourseBaseInfoDto;
-import com.yruns.content.model.dto.QueryCourseParamsDto;
-import com.yruns.content.model.dto.UpdateCourseDto;
+import com.yruns.content.model.dto.*;
 import com.yruns.content.model.pojo.CourseBase;
 import com.yruns.content.model.pojo.CourseMarket;
 import com.yruns.content.model.pojo.CourseTeacher;
@@ -148,6 +145,7 @@ public class CourseBaseInfoServiceImpl extends ServiceImpl<CourseBaseMapper, Cou
                 });
 
     }
+
 
     // 保存营销信息
     private void saveCourseMarket(CourseMarket courseMarket) {

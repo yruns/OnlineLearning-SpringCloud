@@ -28,6 +28,9 @@ spring:
           - data-id: logging-dev.yaml
             group: onlearning-plus-common
             refresh: true
+          - data-id: freemarker-config-dev.yaml
+            group: onlearning-plus-common
+            refresh: true
 
   profiles:
     active: dev # 环境名
